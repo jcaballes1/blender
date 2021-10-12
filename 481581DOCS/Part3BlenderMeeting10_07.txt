@@ -1,0 +1,2141 @@
+PratikPB2125 @PratikPB2125
+03:41
+Hi dfelinto , I think "weekly notes" are not shared yet (via mailing list).
+(Usually I receive the mail on Tuesday)
+
+
+dfelinto @dfelinto
+03:42
+you are right, my bad
+👍 1
+
+
+dfelinto @dfelinto
+03:50
+and done
+I joined Pablo for the blender today this Monday, and it finished too late. That + other busy topics this week and I would always only remember about the weekly notes once I got home :|
+🙃 1
+
+
+tintwotin @tintwotin
+03:57
+ideasman42 If you want to keep track of not only the design issues/to dos of the newly implemented Transform in Preview, but also in the VSE Edit Modes(Extend/Overwrite/Shuffle) there are some things listed here worth considering: devtalk.blender.org/t/design-missing-functionality-in-the-edit-modes-in-the-vse/20759
+
+
+Blendify @blendify
+03:59
+Is there a reason why when dropping a color from one place to another doesnt preserve the Alpaha? Code does this on purpose /* keep alpha channel as-is */
+
+
+Pedro @povmaniac
+04:16
+Morning, guys
+👋 3
+
+
+Blendify @blendify
+04:25
+pff almost time for bed
+
+
+Eitan Traurig @EitanSomething
+04:39
+ThomasDinges Potential Spam. Not everything on the list is spam. github.com/EitanSomething/BlenderSpam/blob/auto_commits/logs.md
+🔥 1
+
+
+Simon-Lenz @Amudtogal
+04:45
+Morning everyone!
+
+
+Simon-Lenz @Amudtogal
+04:47
+Is it intended behaviour that color properties in a UIList do not show up as buttons/previews?
+color_prop_bug.png
+(41.32 kB)
+
+
+
+
+Raimund58 @Raimund58
+04:59
+Bastien Hi there, the module page said you are responsible for the blend file reading. Maybe you know more about the behaviour that Blender 3.0 is showing.
+If I load blender via CLI blender-3.0.0-alpha+master.439c9b0b8478-linux.x86_64-release/blender it is NOT reading the userpref.blend
+Is that a bug or is it intended?
+(Blender 2.93 is reading the userpref)
+On Linux (WSL2, Ubuntu)
+
+
+Bastien @mont29
+05:03
+Raimund58 you need a 3.0 folder in your ~/.config/blender, when loading through UI the first time it proposes you to copy over your settings from previous blender version, otherwise you need to do it manually 😉
+
+
+Raimund58 @Raimund58
+05:07
+Idiot me edited the userprefs in Windows instead of Linux 🤦
+Thanks Bastien 🙂
+
+
+Pedro @povmaniac
+05:37
+😮
+
+
+ideasman42 @ideasman42
+05:48
+Some of these seems reasonable, best move them to tasks if developers have time to work on them.
+Although it seems like mix of feature requests and changes.
+Suggest to split out your suggestions to change recently added features. You might be better off talking to the developers directly. As lists of suggestions tend to get lost in the noise.
+Note that for T91998 I'm mostly concerned with basics - (delete, select all... etc).
+
+tintwotin
+Thursday 3:57 AM
+@ideasman42 If you want to keep track of not only the design issues/to dos of the newly implemented Transform in Preview, but also in the VSE Edit Modes(Extend/Overwrite/Shuffle) there are some things listed here worth considering: https://devtalk.blender.org/t/design-missing-functionality-in-the-edit-modes-in-the-vse/20759
+Reply
+1
+Thursday 7:09 AM
+
+
+
+Mario Hawat @Kyraneth
+06:36
+Hey Brecht Van Lommel and Sergey , whenever you have time, I would love to hear your thoughts on this: devtalk.blender.org/t/cycles-x-feedback/18598/856
+TL/DR: the denoising depth pass has been removed after the Cycles X merger, and it was a crucial part in our/the compositing workflow of mist through refraction heavy scenes. We were planning on rendering our current project with Cycles X and enjoy all the crazy improvements you have implemented but this is now the one feature holding us back. I am not sure if there are any equivalents or workarounds you know of, or if the pass can be brought back or if it was tied to intrinsically to the NLM. Thanks for all your work!
+
+
+Peter Baintner @pred
+07:02
+Mario Hawat I am working on a big project where I had lots of issues in this direction. TL;DR is I think using the mist pass is the only good alternative.
+
+
+IyadAhmed @IyadAhmed
+07:02
+Any pointers are appreciated
+
+IyadAhmed
+Wednesday 7:01 PM
+why in 2.80 motion blur works in viewport, code wise ofc ?
+
+
+Peter Baintner @pred
+07:05
+Mario Hawat oh nvmd - I overlooked the fact that refratction is a requirement. But now I'm curious - isn't the denoising depth pass super noisy?
+
+
+Mario Hawat @Kyraneth
+07:11
+Peter Baintner The denoising depth pass actually comes out surprisingly clean (not sure how). It's an incredibly useful pass, beyond its denoising origins. I'm not sure if I can wrangle the normal Depth or Mist passes to do something like that, but for now I don't see any equivalent to it other than doing computationally expensive render layers or overrides. I am not sure we can get it via AOV even (I would love to be corrected)
+
+
+Peter Baintner @pred
+08:00
+Mario Hawat nice! AOV might work, if you take a separate pass and put that material on every object that's not transparent and take something like the ray length as an input?
+
+
+Sergey @Sergey
+08:25
+JosephEagar Hi. Please follow our guidelines for style in both code and commit messages:
+- wiki.blender.org/wiki/Process/Revert_Commit
+- wiki.blender.org/wiki/Style_Guide/Commit_Messages
+
+
+JosephEagar @JosephEagar
+08:26
+I actually did read through the last 5 commits to try and copy the style 🙂
+So. . .
+
+
+dfelinto @dfelinto
+08:36
+JosephEagar it helps to indicate which commit you are reverting
+and for both the fix and the revert, it is important to make it clear how to reproduce the issue
+(or refer to a bug report)
+Luckily you were the one that spotted the issue with your original commit
+but if it was someone else that person wouldn't even know how to check if your assumptions were correct
+
+
+JosephEagar @JosephEagar
+08:37
+You're right I didn't indicate which commit I was reverting, sorry about that it's a bit early in the morning here.
+
+
+dfelinto @dfelinto
+08:38
+that aside there is indeed some tweaks in the message to fit within the style (separate title e.g., from commit message)
+
+
+JulianEisel @julianeisel
+08:39
+This guideline is the most important to me here:
+ The reason to revert is to be stated explicitly in the revert commit message.
+In the past people commonly reverted stuff without ever mentioning a reason.
+
+
+JosephEagar @JosephEagar
+08:40
+Heh. Just reading my commit message, man am I tired. That's terrible.
+Sorry about that.
+
+
+Sergey @Sergey
+08:44
+Mario Hawat That's an interesting topic. Don't have an immediate answer atm, but AOV might work
+JosephEagar Imagine someone else digging that piece of code, possibly in a long time from now. Or, even future you. Good luck remembering what the bug, how to repro. Or even seeing "not a bug?". Like, whaat?
+
+
+Sergey @Sergey
+08:49
+On a completely unrelated topic: What's gonna happen when i click on "Don't Save" button?
+Clipboard - October 7, 2021 2:49 PM
+(25.35 kB)
+
+
+
+
+pablovazquez @pablovazquez
+08:51
+Blender will be closed without saving?
+
+
+Sergey @Sergey
+08:57
+and no images saved?
+
+
+pablovazquez @pablovazquez
+08:58
+I hope not, you're literally clicking Don't Save
+
+
+Sergey @Sergey
+08:59
+but with "Save 1 modified images" enabled
+is having a brain glitch =\
+
+
+sebastian_k @sebastian_k
+09:05
+i am always paranoid about that as well, and rather disable that checkbox to be sure...
+
+
+LazyDodo @LazyDodo
+09:07
+still doesn't hurt my brain as much as : 1)open blender, 2)move cube , 3) hit alt-f4, 4) save? Sure 5) blender proceeds not to exit , you saved, so we figured you clearly wanted to stay
+seriously how did we manage to write a path tracer if we can't even manage a quit dialog?!
+
+
+Sergey @Sergey
+09:10
+different people
+imagine if we put people who brought you the industry leading path tracer to do the ui 😉
+
+
+LazyDodo @LazyDodo
+09:13
+it be a horrific trainwreck, but i kinda want to see it still 🙂
+
+
+Peter Baintner @pred
+09:14
+Any body knows if something particle baking related was fixed in the past 4-5 days? Looks like my particle issues disappeared magicly, would be super curious though what it was
+
+
+Sergey @Sergey
+09:20
+particles code has its own life
+
+
+Peter Baintner @pred
+09:25
+hopefully one day geometry nodes are fully substituting it
+
+
+Mario Hawat @Kyraneth
+09:27
+Thank you for your reply Sergey ! I'll try my hand at doing it with an AOV, if it works it still means and extra render layer/render time (and some development time to build a script to include it into all our production files), but at least we won't have to constantly revert to 2.93 for rendering. It would be great to see this pass back in some way shape or form 🙂
+
+
+Sergey @Sergey
+09:39
+Mario Hawat The denoising depth will also costs render time though
+
+
+Pedro @povmaniac
+09:41
+dfelinto another one: when you change the format from EXR layered to EXR, the 'codec' field is not updated properly and leave empty : master 3.0 build from yesterday
+
+
+Pedro @povmaniac
+09:41
+Clipboard - 7 de octubre de 2021 15:41
+(600.75 kB)
+
+
+
+
+dfelinto @dfelinto
+09:42
+Pedro that is easy to fix. We fix something similar when switching from a RGB to an RGBA image
+Pedro need helping fixing this?
+
+
+Pedro @povmaniac
+09:42
+I think not..
+The weekend is around the corner.. 🙂
+
+
+dfelinto @dfelinto
+09:45
+if I had to guess someone fixed the RGB/RGBA by creating a custom set function to the RNA prop
+(it is how I would have done it at least)
+👍 2
+
+
+dfelinto @dfelinto
+09:51
+pablovazquez looking at the node group ... atm it draws ALL the parent nodetrees in the background recursively
+
+
+dfelinto @dfelinto
+09:51
+Clipboard - October 7, 2021 3:51 PM
+(328.56 kB)
+
+
+
+
+dfelinto @dfelinto
+09:51
+is surprised
+
+
+Antonioya @antonioya
+09:52
+LazyDodo how can I format python code? make formatlooks is only formatting C/C++
+
+
+pablovazquez @pablovazquez
+09:53
+dfelinto yep, totally overkill. We could avoid that by having the breadcrumbs more prominent (e.g. top-left instead of bottom-left)
+
+
+dfelinto @dfelinto
+09:53
+Antonioya you can use autopep8 --line-limit=120 (or similar forgot the syntax)
+
+
+pablovazquez @pablovazquez
+09:53
+or the ones that Fabian_Schempp ( FabianSchempp ?) did
+
+
+dfelinto @dfelinto
+09:54
+developer.blender.org/T86723 ?
+I think he did the minimap only, not the crumbs
+
+
+LazyDodo @LazyDodo
+09:56
+Antonioya you're on your own for python, there's tools "out there" but none of them are integrated into make format
+
+
+Antonioya @antonioya
+09:56
+ok, I will use the pep8 of VS
+
+
+pablovazquez @pablovazquez
+09:57
+dfelinto developer.blender.org/D10413
+
+
+pablovazquez @pablovazquez
+09:58
+my mockup
+Clipboard - October 7, 2021 3:58 PM
+(23.91 kB)
+
+
+
+
+Hans Goudey @HooglyBoogly
+10:00
+Yes! We have that implemented!
+I would love to avoid drawing the parent node trees and that ugly green color
+
+
+dfelinto @dfelinto
+10:01
+Hans Goudey yes this is what I'm looking at
+
+
+LazyDodo @LazyDodo
+10:01
+always hated that when editing nodegroups, parent tree in the background is just visual clutter that serves (me) no purpose
+
+
+dfelinto @dfelinto
+10:02
+they make dashed lines useless
+or any future plans we may have for colored noodles overlays
+
+
+Hans Goudey @HooglyBoogly
+10:02
+And when you zoom in and out, yikes
+I think the breadcrumb patch was basically ready to go
+
+
+LazyDodo @LazyDodo
+10:04
+I'd also love if we were to implement pablovazquez header bar for nodes, ie
+
+
+LazyDodo @LazyDodo
+10:04
+Clipboard - October 7, 2021 8:04 AM
+(81.71 kB)
+
+
+
+
+LazyDodo @LazyDodo
+10:04
+really digging the dimmed look + colored stripe
+
+
+dfelinto @dfelinto
+10:12
+Hi Blendify please remember to setup your IDE to use clang-format (or run make format manually). 82f0e4948c (cleaned here: 0f58cc15943e) 🙂
+still need to find out why my VS is not running clang-format 😕 so I end up using make format and catch those slips
+
+
+LazyDodo @LazyDodo
+10:16
+it doesn't run format all the time, by default only on certain events like code paste, the format on save addon can be installed for more frequent formatting
+
+
+CharlieJolly @CharlieJolly
+10:35
+It doesn't seem to like the UI python files though. I save a py and then have to undo the formatting. Not really looked at fixing it.
+
+
+Mario Hawat @Kyraneth
+10:45
+Sergey , indeed, but I would assume much less time (the Denoising Depth pass really takes just a few milliseconds from my tests), and more importantly much lighter setup than a custom AOV, overrides and a separate render layer to be re-composited (especially on a larger project, much less complexity to deal with and carry over to rendering on hundreds of files). Speaking of AOVs, I am not really sure how to/haven't been successful in emulating this pass with a custom AOV. Would you or Peter Baintner have any idea as to how to go about it?
+
+
+dfelinto @dfelinto
+10:48
+Lukas Tönne are you around? I'm doing some archaeology work in node groups backgrounds and some details are missing (lost in the python nodes branch)
+
+
+LazyDodo @LazyDodo
+10:48
+[humms indiana jones tune]
+
+
+dfelinto @dfelinto
+10:48
+Lukas Tönne when you demoed the new node groups for the first time there was no "background" when inspecting those node groups
+youtube.com/watch?v=Jk_Kk5yOYvA
+Your original blogpost also doesnt mention them (I skimmed over, but no image show them): code.blender.org/2012/01/improving-node-group-interface-editing/
+Lukas Tönne However your merge of the branch (4638e5f99a9ba) introduced the change
+
+
+LazyDodo @LazyDodo
+10:50
+ A new asset manager is being worked on - 2012... oof
+
+
+dfelinto @dfelinto
+10:50
+So when was that proposed? I couldnt find the branch online to dig further
+LazyDodo we got the last digits flipped
+😆 1
+that's all
+
+
+Antonioya @antonioya
+10:51
+LazyDodo Format on Save does not work in VS2022
+
+
+LazyDodo @LazyDodo
+10:53
+Antonioya looks like they are on it, but may not be available until final release
+
+
+Pedro @povmaniac
+10:57
+VS + python = possible dissaster 😛
+But btw, VS Code seems pretty good
+
+
+Antonioya @antonioya
+10:59
+LazyDodo I have seen Microsoft is thinking to add the Format on Save as core feature of the editor
+
+
+dfelinto @dfelinto
+11:06
+If anyone is curious about the nodegroups over the years: developer.blender.org/D12780 (cc pablovazquez )
+👍 4 🎖 1
+
+
+wannes.malfait @wannes.malfait
+11:08
+ This made its debug in Blender 2.67
+ (30/May/2021).
+dfelinto Is that supposed to be "It made its debut in Blender 2.67 (30/May/2012)"?
+
+
+dfelinto @dfelinto
+11:08
+oh indeed 🙂
+
+
+Hans Goudey @HooglyBoogly
+11:08
+Nice patch Dalai!
+
+
+Lukas Tönne @LukasTonne
+11:13
+dfelinto that's ancient stuff, not sure i can remember details, but what do you want to know?
+
+
+dfelinto @dfelinto
+11:13
+oh the man himself is typing 🙂 hey Lukas
+Lukas Tönne basically your 2 cents on developer.blender.org/D12780
+I couldnt find the reasoning anywhere to have the transparency layers
+
+
+Lukas Tönne @LukasTonne
+11:15
+go for it! personally i always set my node group background to a solid color, so have less noise with all the parent nodes shining through
+
+
+dfelinto @dfelinto
+11:15
+Lukas Tönne do you do it by changing the theme?
+
+
+Lukas Tönne @LukasTonne
+11:16
+yes
+i think the reasoning at the time was to have some kind of indication that you are in fact in a "child" node group, but the feature isn't great
+
+
+dfelinto @dfelinto
+11:24
+Thanks, I will commit this soon then unless I get cold feet
+
+
+troubled @troubled
+12:24
+I restarted the Phabricator PHD processes that were sucking up around 30G of ram and pushing the memory limits on the system. Hopefully it helps phab response times a bit
+Just doing a few hdd things on the host as well, so might be some spikes of sluggishness here and there
+
+
+troubled @troubled
+12:31
+Seems to have improved
+Clipboard - October 7, 2021 12:31 PM
+(124.68 kB)
+
+
+🙏 1
+
+
+ThomasDinges @ThomasDinges
+13:44
+troubled Feels more responsive at the moment, thanks! 🙂
+
+
+troubled @troubled
+13:46
+No problem!
+
+
+tintwotin @tintwotin
+14:37
+When trying to follow the developments of a module, and patches are committed without review and without module tag, it make checking for introduced bugs, close to impossible. Could BF devs be reminded of module tagging their commits?
+
+
+LazyDodo @LazyDodo
+14:39
+there's no such requirement afaik, so somewhat difficult to remind people to do it
+
+
+JulianEisel @julianeisel
+14:43
+Commits are usually not tagged, the commit title should make clear what it’s about
+
+
+tintwotin @tintwotin
+14:50
+What's your opinion on "the why" I think module tags on commits are needed?
+
+
+LazyDodo @LazyDodo
+14:51
+I'm unsure, it's quite easy to see the commits to subfolder imho? even on the website
+
+
+Hans Goudey @HooglyBoogly
+14:52
+I don't think they're needed. Agreed that the title of the commit should make it clear. And all non-fix/cleanup commits are in the weekly update anyway
+For geometry nodes we use it as a hack to keep track of which commits still need documentation
+
+
+tintwotin @tintwotin
+14:52
+Where do I do that?
+
+LazyDodo
+Thursday 2:51 PM
+I'm unsure, it's quite easy to see the commits to subfolder imho? even on the website
+
+
+LazyDodo @LazyDodo
+14:53
+The part you care about is essentially two folders, one two
+
+
+tintwotin @tintwotin
+14:57
+Ok. Thanks. So, what is the purpose of the tags on d.b.o? Should all submitted patches have them(which is not always the case with patches from BF devs)?
+
+
+LazyDodo @LazyDodo
+15:09
+for patches it helps hooking up the patch with a reviewer
+bf-devs tend to assign reviewers directly
+wiki on submitting code, doesn't mention tags
+
+
+James @james
+15:34
+To use blender on my intel gpu w/ 2.92.1 on Linux, i used to have to rebuild blender with llvm disabled (the intel-opencl driver embeds llvm, which was namespace colliding with blenders'). With 2.93.4, it looks like I can use it successfully with llvm enabled in blender -- but before I switch all my machines to that I wanted to see if the issue was intentionally fixed, or if it just randomly started working (and might start failing again) I see developer.blender.org/T68052 mentions the issue, but doesn't call out that it was resolved. I guess I would also like to verify I re-enabled llvm correctly in my build -- is there an easy way to check that?
+
+
+LazyDodo @LazyDodo
+15:39
+there's a blender.map in the creator source folder, if there was a fix, that be file with changes
+developer.blender.org/rBc6ba7359ae89dc4405c35972ecea7850f55dd83f
+ah there we go, fix was intentional
+
+
+James @james
+15:40
+Sweet!
+
+
+LazyDodo @LazyDodo
+15:40
+doesn't list 2.93.4 as having that fix though
+i'd double check the release branch you're building just to be sure
+
+
+James @james
+15:44
+ok. thanks.
+
+
+IyadAhmed @IyadAhmed
+15:45
+something is funny with read_homefile operator
+and possibly open mainfile in this use case
+
+when the operator is executed from UI Panel in 3D Viewport, and a popup is not invoked, e.g when file is not dirty, or when calling inside another operator with "EXEC_DEFAULT"
+
+the window only catches the mouse press event, and not release, so it invokes for example the box select operator in the newly opened file, or what ever is assigned to left click
+
+here's code for you to try, execute the button twice in a row, under view3d Misc category
+
+import bpy
+class Foo(bpy.types.Panel):
+    bl_label = "General"
+    bl_region_type = "UI"
+    bl_space_type = "VIEW_3D"
+
+    def draw(self, context):
+        op = self.layout.operator("wm.read_homefile")
+        op.load_ui=False
+        op.use_empty=True
+
+
+bpy.utils.register_class(Foo)
+
+
+
+the only way I found to fix this is to simulate mouse-left-release right before calling
+
+....
+# simulate mouse left release here
+bpy.ops.wm.read_homefile(load_ui=False, use_empty=True)
+....
+
+
+but I cannot use event_simulate without enabling it in command line args docs.blender.org/manual/en/latest/advanced/command_line/arguments.html#misc-options
+
+which is not very convenient as it would be used in a user addon
+I used a 3rd party module to simulate mouse events, it worked, but that solution is not perfect too, considering support for multiple platforms
+
+
+can someone help with this?, I suppose this is something that should be edited in Blender source, but still I want to understand the issue more
+
+thanks in advance
+Reply
+9
+Thursday 6:38 PM
+
+
+
+Hans Goudey @HooglyBoogly
+15:48
+Hi IyadAhmed, python API questions are meant for the #python channel. This post is so long though, that it's probably better for devtalk.
+
+
+IyadAhmed @IyadAhmed
+15:49
+ok will move it, though it is something with the implementation of the operator as far as I got trying to fix it
+
+HooglyBoogly
+Thursday 3:48 PM
+Hi @IyadAhmed, python API questions are meant for the #python channel. This post is so long though, that it's probably better for devtalk.
+devtalk.blender.org/t/issue-with-handling-window-events-when-calling-read-homefile/20792
+I tried using bl_options BLOCKING and GRAB_CURSOR
+I tried several workarounds, nothing helped
+ok a related thing, is there a way to clear all objects and data AND undo history?
+to free up the ram usage?, because only way found is to load empty home file
+and that has the issue 😞
+any help is appreciated I pulled my hair trying to fix it
+
+
+IyadAhmed @IyadAhmed
+15:57
+Clipboard - October 7, 2021 9:57 PM
+(43.33 kB)
+
+
+
+
+IyadAhmed @IyadAhmed
+15:57
+and I have to write this cursed comment
+
+
+IyadAhmed @IyadAhmed
+16:01
+I5Viz5qj1q.mp4
+(1.50 MB)
+
+
+
+IyadAhmed @IyadAhmed
+16:01
+screen recording of the issue
+
+
+IyadAhmed @IyadAhmed
+16:04
+Clipboard - October 7, 2021 10:04 PM
+(14.60 kB)
+
+
+
+
+orion160 @orion160
+17:33
+So the way in which blender manages dependencies is with an SVN repo
+And the make script is responsible for sync and copy files to build path right?
+something is funny with read_homefile operator and possibly open mainfile in this use case when the operator is executed from UI Panel in 3D Viewport, and a popup is not invoked, e.g when file is not dirty, or when calling inside another operator with "EXEC_DEFAULT" the window only catches the mouse press event, and not release, so it invokes for example the box select operator in the newly opened file, or what ever is assigned to left click here's code for you to try, execute the button twice in a row, under view3d Misc category import bpy class Foo(bpy.types.Panel): bl_label = "General" bl_region_type = "UI" bl_space_type = "VIEW_3D" def draw(self, context): op = self.layout.operator("wm.read_homefile") op.load_ui=False op.use_empty=True bpy.utils.register_class(Foo) the only way I found to fix this is to simulate mouse-left-release right before calling .... simulate mouse left release here bpy.ops.wm.read_homefile(load_ui=False, use_empty=True) .... but I cannot use event_simulate without enabling it in command line args https://docs.blender.org/manual/en/latest/advanced/command_line/arguments.html#misc-options which is not very convenient as it would be used in a user addon I used a 3rd party module to simulate mouse events, it worked, but that solution is not perfect too, considering support for multiple platforms can someone help with this?, I suppose this is something that should be edited in Blender source, but still I want to understand the issue more thanks in advance
+
+
+any idea? Harleya
+
+
+IyadAhmed @IyadAhmed
+18:18
+here's a recording of the issue
+
+IyadAhmed
+Thursday 4:01 PM
+I5Viz5qj1q.mp4
+(1.50 MB)
+
+code
+gist.github.com/iyadahmed/af503840cc3b98c00e64e8fc5a14e008
+
+
+LazyDodo @LazyDodo
+19:52
+HowardTrickey you can directly link to a branch build like this https://builder.blender.org/download/experimental/soc-2020-io-performance/ , if you're on the main page at https://builder.blender.org/download/experimental/ you can find the individual links hiding under the # at the right hand side of a build
+
+
+HowardTrickey @HowardTrickey
+19:54
+Thanks. I thought I'd have to put links for each architecture and didn't feel like doing that. Thought it was obvious enough what to do if you got to the download page.
+
+
+LazyDodo @LazyDodo
+22:22
+dfelinto you may need to do some more cleanup, the green overlay color for node groups is still in the theming UI/XML
+
+
+Hans Goudey @HooglyBoogly
+22:38
+Well, it still changes the color of the node header
+
+
+LazyDodo @LazyDodo
+22:50
+well, darn! I swear my grep for TH_NODE_GROUP came up empty earlier 🙂
+
+
+Hans Goudey @HooglyBoogly
+22:55
+That said, coloring all node groups the same color isn't really very flexible
+
+
+LazyDodo @LazyDodo
+23:06
+Hans Goudey available for a "is it just me test?"
+
+
+Hans Goudey @HooglyBoogly
+23:06
+Sure, what's up?
+
+
+LazyDodo @LazyDodo
+23:07
+open up a node editor (any) pop in a random node, and collapse it with the little triangle in the upper left, now expand it again, life's great
+now use the mouse wheel to zoom in as far as it'll go and try again
+i can't expand it by hitting the triangle, i have to hit it just right of it near the label
+
+
+Hans Goudey @HooglyBoogly
+23:10
+Hmm, I have to click the very right side of the triangle
+It clearly doesn't take the zoom into account correctly
+
+
+LazyDodo @LazyDodo
+23:11
+collapse works fine though
+
+
+Hans Goudey @HooglyBoogly
+23:11
+Yeah, the collapsed and un-collapsed state are built by two completely different functions, so that's not so surprising
+I'd like to clean up the drawing code for nodes
+
+
+PratikPB2125 @PratikPB2125
+02:18
+Hi ThomasDinges , task spammer: developer.blender.org/p/neinstein/
+Reply
+1
+Friday 2:34 AM
+
+
+
+Hi PratikPB2125 , thanks removed! 🙂
+
+
+Peter Baintner @pred
+03:11
+Clipboard - October 8, 2021 9:11 AM
+(579.90 kB)
+
+
+
+
+Peter Baintner @pred
+03:11
+Mario Hawat Here you go:
+
+
+Pedro @povmaniac
+04:26
+Morning, guys
+👋 5
+
+
+Eitan Traurig @EitanSomething
+04:39
+ThomasDinges Potential Spam. Not everything on the list is spam. github.com/EitanSomething/BlenderSpam/blob/auto_commits/logs.md
+🔥 1
+
+
+Raimund58 @Raimund58
+05:14
+Hm, who can kick the buildbot for windows? It did not run this night 😕
+Maybe LazyDodo ?
+Reply
+2
+Friday 6:38 AM
+
+
+
+Pedro @povmaniac
+05:22
+The problem is the time zone.. ( for Lazy.. I meant)
+👍 1
+
+
+DarkKnight @DarkKnight
+05:25
+Everyone can kick the buildbot. wiki.blender.org/wiki/Infrastructure/BuildBot
+
+
+Raimund58 @Raimund58
+05:42
+If I that correctly there are failed tests. That's why it didn't build (I guess)
+
+
+DarkKnight @DarkKnight
+05:43
+Yep i noticed it now too. Last build is from Oct 6
+🤨 1
+
+
+Pedro @povmaniac
+05:51
+Build here ok,,
+>>> bpy.app.build_time
+b'08:35:26'
+wait..
+( making git pull right now..)
+
+
+DarkKnight @DarkKnight
+05:54
+Need a new build since when you close the render window, blender closes completely..
+
+
+Pedro @povmaniac
+05:55
+Ok. I don't build any test here, so, the compilation is Ok
+
+
+dfelinto @dfelinto
+06:38
+dr.sybren JulianEisel
+C:\Users\blender\git\blender-vdev\blender.git\source\blender\blenkernel\intern\asset_catalog_test.cc(589): error: Expected equality of these values:
+builder.blender.org/admin/#/builders/30/builds/2092
+Is it passing locally?
+
+
+dr.sybren @dr.sybren
+06:39
+dfelinto that looks like the problem I fixed in a3e2cc0bb7f. Is this build before or after that commit?
+
+
+dfelinto @dfelinto
+06:39
+daily build, so early foggy morning time
+If it is fixed already I will just kick the buildbot again
+is double checking the facts
+
+
+dr.sybren @dr.sybren
+06:40
+dfelinto yeah, then you're only the third to poke me about it (and the 2nd after the fix was committed)
+
+
+dfelinto @dfelinto
+06:40
+I was poked about 🙂 just piping the poke through
+but I do see two jobs already for the daily vdev coordinator
+so I wonder if everyone is poking bbot 🙂
+
+
+dr.sybren @dr.sybren
+06:41
+Isn't it your job to stop poke chains & check the facts before bothering devs? 😉
+
+
+dfelinto @dfelinto
+06:41
+my job is to centralize the pokes
+if people poke me AND the devs I'm helpless
+anyways, my job is neither tbh
+
+
+Pedro @povmaniac
+06:46
+😮
+
+
+dfelinto @dfelinto
+06:49
+builds are building
+buildbot needs fix (it doesnt show whether the tests were skipped when the build was called from the form)
+but anyways, something to worry about in the future
+
+
+dfelinto @dfelinto
+06:55
+Reported: developer.blender.org/T92042
+
+
+dr.sybren @dr.sybren
+06:57
+ideasman42 msgbus question: do the subscriptions to general types, so for example bpy.msgbus.subscribe_rna(key=(bpy.types.FileAssetSelectParams, "asset_library_ref"), ...), survive a blend file loading? Or do I need to re-subscribe when a file is loaded?
+
+
+ideasman42 @ideasman42
+06:57
+dr.sybren if they are persistent yes. (options={'PERSISTANT'})
+
+
+dr.sybren @dr.sybren
+06:58
+ideasman42 that's not what is documented, though -- there it says when set, the subscriber will be kept when remapping ID data
+It doesn't mention file reloads.
+
+
+ideasman42 @ideasman42
+06:58
+Checking...
+
+
+dfelinto @dfelinto
+07:01
+pablovazquez I think we need to also brighten the Layout > Frames as well
+otherwise they stand out too much when we brighten the background of the nodetree
+
+
+ideasman42 @ideasman42
+07:02
+dr.sybren ah, they will be freed. This can be supported though. in the case of subscription to types.
+A workaround would be to add a file-load handler.
+
+
+dr.sybren @dr.sybren
+07:03
+yeah, support for this would be appreciated, but it's not too hard to just add a file-load handler.
+for now I'll at least add the "subscriptions are freed on file load" to the documentation 😉
+👍 1
+
+
+Pedro @povmaniac
+08:04
+As curiosity.. I think alembic ( or USD ??) uses MTface that is ..deprecated??
+
+
+Hans Goudey @HooglyBoogly
+08:20
+Isn't it MFace that's deprecated?
+
+
+Pedro @povmaniac
+08:37
+Both..
+
+
+dfelinto @dfelinto
+09:32
+ideasman42 I'm often getting crashes on WM_event_get_keymap_from_toolsystem_fallback. I've seen you fixing those. (crash )
+ideasman42 I dont know how to reproduce exactly (in this case I was copying a value from a theme in user pref.
+ideasman42 I've seen you fixing some crashes like that.
+ideasman42 does that crash gives you any clues?
+
+
+ideasman42 @ideasman42
+09:40
+Hey dfelinto, I wasn't aware of this... any hints for what to test?
+
+
+Sergey @Sergey
+09:40
+CAMPBELL!!!!!
+👋 1
+
+
+dfelinto @dfelinto
+09:41
+ideasman42 usually just me playing around with the UI
+ideasman42 the crash last time was when I pressed the "windows" key iirc
+
+
+ideasman42 @ideasman42
+09:42
+dfelinto How long has this been happening for?
+
+
+Sergey @Sergey
+09:45
+dfelinto maybe get you a release build with debug symbols and make you click around while running from gdb?
+
+
+dfelinto @dfelinto
+09:47
+ideasman42 I started noticing it this week I think
+
+
+ideasman42 @ideasman42
+09:47
+Run with ASAN too, gives useful info and crashes more often.
+
+
+dfelinto @dfelinto
+09:47
+it happened at least hm 4 times to me this week
+I run into those when developing. So usually I do make lite 😕
+could get faster computer and stop using make lite
+
+
+ideasman42 @ideasman42
+09:48
+you can do make debug lite
+dfelinto surprised I didn't hit this too then, I've been doing things which I would expect to notice this issue (and running with ASAN). Is this only ever happening with tooltips? (possibly I'm not triggering those as much)
+
+
+dfelinto @dfelinto
+09:49
+next week ... I will try to run asan here and click around
+
+
+Sergey @Sergey
+09:50
+dfelinto hey! did you just make blender to crash when opening pabellon.blend file?
+
+
+dfelinto @dfelinto
+09:51
+Sergey probably not
+will download pabellon.blend and test
+but probably not my commit
+commit(s)
+
+
+Sergey @Sergey
+09:52
+lies
+ebe23745281
+bNodeTreePath *path = (bNodeTreePath *)snode->treepath.last
+blindly trusting the treepath not being empty
+no null-pointer check, not comment explaining that it is never empty
+
+
+Hans Goudey @HooglyBoogly
+09:53
+BTW dfelinto, UI commits generally get the UI: prefix, not "User Interface:"
+Just makes them easier to find if the prefix is always the same
+
+
+Sergey @Sergey
+09:54
+dfelinto /shared/users/sergey/pabellon
+
+
+dfelinto @dfelinto
+09:54
+is on it
+
+
+Hans Goudey @HooglyBoogly
+09:54
+Why not just use BLI_listbase_count_at_most?
+
+
+Sergey @Sergey
+09:55
+because.. code review is overrated? 😉
+hides
+
+
+dfelinto @dfelinto
+09:55
+because moved code from a place to another
+
+
+Hans Goudey @HooglyBoogly
+09:55
+Looks new in that commit!
+
+
+LazyDodo @LazyDodo
+09:56
+gentlemen, to the pitchforks!
+
+
+dfelinto @dfelinto
+09:56
+Hans Goudey 919e513fa8f9f
+
+
+Sergey @Sergey
+09:56
+dfelinto don't blindly copy-paste. adopt code to the new standards. coomoooooonn duuuude
+dfelinto also code review without developers involved eh (D12780)
+
+
+dfelinto @dfelinto
+09:59
+Sergey Hans approved it
+(in chat)
+
+
+Hans Goudey @HooglyBoogly
+09:59
+With the heart? Haha
+
+
+Sergey @Sergey
+09:59
+evidence? 😛
+
+
+dfelinto @dfelinto
+09:59
+Clipboard - October 8, 2021 3:59 PM
+(39.22 kB)
+
+
+
+
+dfelinto @dfelinto
+09:59
+well "nice patch"
+😀 1
+
+
+Sergey @Sergey
+10:00
+so much for attempts to make review more explicit and clear and useful and such
+
+
+LazyDodo @LazyDodo
+10:00
+hey atleast a kind stranger spotted that outdated comment
+
+
+Sergey @Sergey
+10:01
+true
+
+
+dfelinto @dfelinto
+10:01
+also talked to Eisel who said: "sure, commit it", but I don't think he looked at the patch. I was talking to him about the feature mostly
+
+
+Hans Goudey @HooglyBoogly
+10:01
+I was referring the the patch description there, the history, etc. I would have accepted it, anyway, it's just removing old code
+Probably would have requested changes on the follow-up, though I was asleep
+
+
+Sergey @Sergey
+10:02
+Hans Goudey JulianEisel If you approve a patch, make sure you click the Approve button in the code review
+
+
+Pedro @povmaniac
+10:05
+Nahh... Even the most perfect excuse to skip a rule... it's just that, an excuse. 😛
+
+
+dfelinto @dfelinto
+10:05
+Sergey I have a fix, but I can't reproduce the crash in master. You just opened the file?
+
+
+Sergey @Sergey
+10:06
+Yes. Just open the file
+
+
+dfelinto @dfelinto
+10:06
+Fix is developer.blender.org/D12794 btw
+
+
+Sergey @Sergey
+10:06
+One moment. I'm lost a bit aobut which exact file i' mopening
+dfelinto /shared/users/sergey/scenes/pabellon.blend
+
+
+dfelinto @dfelinto
+10:09
+and bug fixed
+Sergey can you +1 the patch?
+
+
+Sergey @Sergey
+10:09
+one sec
+
+
+dfelinto @dfelinto
+10:09
+will update the description a bit ,moment
+is trying to understand what is unique about that file ... empty nodetree?
+
+
+Sergey @Sergey
+10:10
+Think we re-saved it at some point or something
+
+
+LazyDodo @LazyDodo
+10:10
+dfelinto just in case this description makes it into the commit message, suit->suite
+
+
+Hans Goudey @HooglyBoogly
+10:11
+More nitpicking: The commit should probably say "because of an empty tree path" or something, I don't think the file it references is available outside the studio
+
+
+dfelinto @dfelinto
+10:11
+right which is what I'm trying to figure out
+I couldn't reproduce from scratch though
+
+
+Hans Goudey @HooglyBoogly
+10:11
+It is weird to have an empty tree path, I wouldn't expect that
+But it's saved in files, so it might be gone for who knows what reason (that doesn't even have anything to do with current code), and we can't really control that in a saved file
+
+
+Sergey @Sergey
+10:12
+old file prior the path was introduced?
+
+
+Hans Goudey @HooglyBoogly
+10:13
+Maybe
+
+
+Steffen Dünner @SteffenD
+10:13
+I just wanted to report an instant crash on scene load after the latest commits. But then i saw this discussion. It's not the pabellon.blend but a scene I'm currently working on.
+
+
+dfelinto @dfelinto
+10:13
+no, cant repro with 2.93 empty nodetree file either
+
+
+Hans Goudey @HooglyBoogly
+10:13
+Got to love it, the comment for treepath says remove later on and use bNodeTreePath instead. lol
+🤣 1
+I still don't understand it quite well enough to refactor it though
+
+
+dfelinto @dfelinto
+10:17
+pushed, thanks
+(or pushed, sorry? 😉
+Steffen Dünner let me know if it still crashes for your file
+👍 1
+
+
+Juan Gea Rodriguez @bonestudio
+10:18
+I just compiled it, before the latest node.cc commit
+and it was crashing instantly when you try to enter into GN
+I'm recompiling now
+in fact I came here to ask about that crash in master
+now it's not crashing instantly
+
+
+Sergey @Sergey
+10:19
+not instantly but with some delay? 😮
+
+
+Hans Goudey @HooglyBoogly
+10:19
+I know there's quite a few crashes in geo nodes at the moment, they're a bit over my head currently : (
+
+
+Juan Gea Rodriguez @bonestudio
+10:19
+Sergey let me rephrase... now it's not crashing
+XD
+Hans Goudey this one was big, just open the GN editor and it was giving a generated core
+
+
+Hans Goudey @HooglyBoogly
+10:20
+Okay, probably that same thing then
+
+
+Juan Gea Rodriguez @bonestudio
+10:20
+I opened an old file I have and it's not crashing either
+
+
+Steffen Dünner @SteffenD
+10:24
+OK; crash seems to be fixed
+
+dfelinto
+Friday 10:17 AM
+@SteffenD let me know if it still crashes for your file
+
+
+dfelinto @dfelinto
+10:25
+The old code was inside a check for if (snode->treepath.last) {, which is why it was not checking for path before doing path->prev. But since I moved the loop code before that (when drawing the background color) the bug sneaked in
+anyways next time: code review, code review, code review
+
+
+LazyDodo @LazyDodo
+10:29
+I like how not a single person went "hey wow, our test coverage is really poor" 🙂
+
+
+Sergey @Sergey
+10:34
+oh wow our tests coverage is poor. but also people don't run the existing ones before committing, breaking cycles tests sigh
+LazyDodo feel better now?
+
+
+LazyDodo @LazyDodo
+10:35
+total zen, like a Buddhist monk
+
+
+Sergey @Sergey
+10:37
+Xen, like Gordon Freeman
+
+
+Juan Gea Rodriguez @bonestudio
+10:43
+from reading you both I can see something obvious here...
+it's friday
+
+
+LazyDodo @LazyDodo
+10:45
+don't think so, Pedro hasn't done his "quiet friday" therefore it cannot be friday
+😁 4
+
+
+orion160 @orion160
+12:08
+What is blender player?
+In Cmake file, in option WITH_BLENDER if it is not specified it will build only the blender player
+
+
+ThomasDinges @ThomasDinges
+12:14
+Blender Player was a way to run Blender Game Engine games without opening Blender (basically to ship games then)
+
+
+ThomasDinges @ThomasDinges
+12:21
+We indeed have a few "Player" mentionings in the Cmake files, if someone wants to have some cleanup fun... 🙂
+
+
+orion160 @orion160
+12:24
+So it is legacy, or it is now removed?
+i could do the cleanup 🙂
+
+
+LazyDodo @LazyDodo
+12:24
+has been removed
+last version that shipped BGE/Player was 2.79
+the WITH_BLENDER option cannot be removed though, just a docfix will be required for it
+👍 1
+
+
+orion160 @orion160
+12:28
+I will supose cycles standalone is still working, i will give it a try
+
+
+LazyDodo @LazyDodo
+12:30
+doesn't get a whole lot of testing or any CI could be broken
+most people use the standalone repo for it
+
+
+Pedro @povmaniac
+12:31
+😮 not very quiet Friday!!
+😂 5
+
+
+orion160 @orion160
+12:35
+could i do a PR in github mirror?
+
+
+LazyDodo @LazyDodo
+12:38
+no
+you can find the procedure for submitting a patch on the wiki at wiki.blender.org/wiki/Process/Contributing_Code
+
+
+Gilberto.R @Gilberto.R
+12:50
+hello, I'm trying to submit my first diff, but it involves some icon changes, and idk how to upload the .dat files generated by the blender_icons_update.py. D12789
+
+
+LazyDodo @LazyDodo
+12:57
+not my area, but i suppose if they are generated, you don't have to include them?
+
+
+Gilberto.R @Gilberto.R
+13:01
+I don't think so because we have to generate them by running that script before building
+
+
+LazyDodo @LazyDodo
+13:03
+patch seems to have plenty of .dat files, is it just the new ones that are missing?
+
+
+Gilberto.R @Gilberto.R
+13:03
+the git diff only mentions that .dat binary file differs, but doesn't include the changes, so if you try to apply it there will be an error for each .dat file
+
+
+LazyDodo @LazyDodo
+13:05
+i'd take them out and make generating new dats a problem for whomever gets to land it
+
+
+Gilberto.R @Gilberto.R
+13:06
+lol
+
+
+LazyDodo @LazyDodo
+13:07
+you could try arcanist for submitting the patch, but i'll admit, we're at the throwing shi..stuff at the wall phase of problem solving
+
+
+Gilberto.R @Gilberto.R
+13:07
+and for some reason, if you just run the script now there will be changes to the "Boid icon". so the svg is not in sync with the current icon
+
+
+LazyDodo @LazyDodo
+13:08
+can't really help that much, usually when i see a UI patch, i hiss and run in the other direction
+
+
+Gilberto.R @Gilberto.R
+13:08
+ok, I'll try setting up arcanist
+
+
+LazyDodo @LazyDodo
+13:09
+heh.. you're in for a world of fun... wait no.. pain.. yeah.. thats it a world of pain , setting up arcanist is... challenging
+
+
+Gilberto.R @Gilberto.R
+13:09
+no problem, I will do anything for blender
+
+
+LazyDodo @LazyDodo
+13:10
+after you install arcanist, be sure to manually make this change : lists.blender.org/pipermail/bf-committers/2021-October/051169.html
+
+
+Gilberto.R @Gilberto.R
+13:10
+alright
+
+
+ThomasDinges @ThomasDinges
+13:13
+As a workaround you can also just upload the .dats inside a .zip file and attach them to the patch on the website
+
+
+LazyDodo @LazyDodo
+13:13
+given it's already out of sync, and they are generated , why bother with them?
+
+
+ThomasDinges @ThomasDinges
+13:13
+At least for initial testing, not the best solution though 😕
+
+
+Juan Gea Rodriguez @bonestudio
+13:14
+LazyDodo NOW it's driday day Pedro did it! hehehe
+
+
+LazyDodo @LazyDodo
+13:59
+Gilberto.R how's arcanist treating you?
+
+
+Gilberto.R @Gilberto.R
+14:01
+I haven't started installing it yet, was having some lunch 🍽
+🍝 1
+
+
+LazyDodo @LazyDodo
+14:01
+allright, just checking up, since it can be tough depending on your OS 🙂
+
+
+Gilberto.R @Gilberto.R
+14:02
+I'm windows guy like you, will poke for sure if I have any difficulty
+
+
+LazyDodo @LazyDodo
+14:04
+i can zip up my copy if you want, you just need to fix some paths in a batch file
+
+
+Gilberto.R @Gilberto.R
+14:07
+that sounds way easier, can you dm me the zip?
+
+
+LazyDodo @LazyDodo
+14:13
+sure thing, hold on
+
+
+ankitm @ankitm
+14:49
+stackoverflow.com/a/42459071/
+arc wasn't used here (although later on he did start using it) developer.blender.org/D8875
+
+Gilberto.R
+Friday 12:50 PM
+hello, I'm trying to submit my first diff, but it involves some icon changes, and idk how to upload the .dat files generated by the blender_icons_update.py. D12789
+
+
+Gilberto.R @Gilberto.R
+16:31
+Yay it worked!
+arcanist.png
+(42.84 kB)
+
+
+
+
+Gilberto.R @Gilberto.R
+16:31
+thank you so much!
+
+
+LazyDodo @LazyDodo
+16:32
+\o/
+
+
+Tha_Hobbist @Tha_Hobbist
+02:48
+who are some famous developers in the blender foundation other than pablo and Dalai?🤔
+
+
+LazyDodo @LazyDodo
+02:52
+most of them are listed near the bottom of the weekly reports like this one
+
+
+Pedro @povmaniac
+04:31
+Morning..
+👋 7
+
+
+jaggz @jaggz
+14:58
+should I post this type of basic thing as an issue: "Could NOT find Zstd (missing: ZSTD_INCLUDE_DIR)"
+(make after make update causes it in my debian system)
+(unfortunately, libzstd-dev is actually installed too)
+
+
+jaggz @jaggz
+15:11
+Also: build_linux/CMakeFiles/CMakeTmp/src.cxx:1:10: fatal error: arm_neon.h: No such file or directory
+Not sure why it's looking for an arm header. packages.debian.org/search?mode=path&suite=bullseye&section=all&arch=any&searchon=contents&keywords=arm_neon.h
+
+
+LazyDodo @LazyDodo
+15:37
+it's checking for neon support, which can fail, it's part of the test
+it shoudn't stop cmake from wokring
+
+
+jaggz @jaggz
+18:47
+LazyDodo ahh, thanks. Yeah that's in the cmake error log. The zstd error is output from make though, to console, and results in a Configuring incomplete, errors occurred!
+
+
+Ruthie @Ruthie
+18:47
+Can one of you guys help out in #support ?
+
+
+jaggz @jaggz
+18:48
+and that's kinda messed up, since that seems like it's the system cmake files failing: CMake Error at /usr/share/cmake-3.16/Modules/FindPackageHandleStandardArgs.cmake:146 (message): Could NOT find Zstd (missing: ZSTD_INCLUDE_DIR)
+
+
+jaggz @jaggz
+19:14
+Wait, it's not, that ends up being our own build_files/cmake/Modules/FindZstd.cmake:55
+and, while I'm not familiar with this, I think it's supposed to be trying to build it itself, not failing if it can't find it on the system? ./build_files/build_environment/cmake/zstd.cmake
+
+
+jaggz @jaggz
+20:55
+Whenever someone's around who might know this, I'd appreciate it. My last build from a couple months ago is segfaulting when rendering out a video, and I wanted to test a fresh pull (so now I'm stuck with a broken build). :}
+
+
+LazyDodo @LazyDodo
+21:03
+jaggz the dep got added recently, i'd make sure your svn libs are up to date, and try starting with a new build folder
+
+
+jaggz @jaggz
+21:09
+LazyDodo I did make update; that should update okay right? I moved build_linux out of the way beforehand too.
+trying a make deps now
+
+
+deadpin @deadpin
+21:22
+jaggz bog standard ubuntu seems ok here (cmake step at least)? If you're going to use the precompiled libraries you don't have to make deps your own.
+
+
+jaggz @jaggz
+21:23
+deadpin debian stable here. I was using the precompiled and just relying on "make update" to grab'em, but was still getting this error (and see no zstd in the tree except the cmake-related files... and blenlib/intern/filereader_zstd.c)
+the system ones are installed in debian too (libzstd1 and libzstd-dev), but it doesn't find those (or isn't looking for them)
+
+
+deadpin @deadpin
+21:24
+cmake should say something very similar to: Found Zstd: /home/jesse/blender-git/lib/linux_centos7_x86_64/zstd/lib/libzstd.a 
+if you go inside your linux_centos7_x86_64 dir and manually svn update, maybe that will yield some clues too (should be at revision 62717)
+
+
+jaggz @jaggz
+22:38
+deadpin thanks for the help. My dir is Mar 19 2021 lib/linux_x86_64/ with no zstd/ in it. I'm getting the centos ones now.
+
+
+jaggz @jaggz
+22:48
+(since my make deps failed and I don't want to try troubleshooting it if I don't have to)
+
+
+QLavi @qlavi
+08:00
+hello!
+I am new to blender source. and wanted to learn about blender development.
+I wanted to ask how can disable some build Configuration and features before building blender.
+compilation takes too long for so I want to disable most of build options. I am on windows and using cmake/ninja.
+
+
+PratikPB2125 @PratikPB2125
+08:08
+Hi QLavi , did you check wiki.blender.org/wiki/Building_Blender/Options#Setup_For_Developers ?
+ so I want to disable most of build options.
+May be you can use "lite" build or disable parameters from CMakeCache.txt
+You can always ask build related questions on #blender-builds 🙂
+
+
+QLavi @qlavi
+08:10
+oh alright.
+I also found how to disable options I didn't check cmake-gui before 😅
+thanks for the info, pratik.
+👍 1
+
+
+Df @Df
+10:17
+I'm trying to shear an object via its transforms. I figured I might just be able to apply the matrix I want, for example 
+import bpy
+testObj = bpy.data.objects['matrix edit test']
+
+
+defMatrix = ((1.0, 0.0, 0.0, 0.0), 
+             (0.0, 1.0, 0.0, 0.0),
+             (0.0, 0.0, 1.0, 0.0),
+             (0.0, 0.0, 0.0, 1.0))
+             
+
+shearMatrix =  ((1.0, 0.0, 0.0, 0.0), 
+             (0.5, 1.0, 0.0, 0.0),
+             (0.0, 0.0, 1.0, 0.0),
+             (0.0, 0.0, 0.0, 1.0))
+             
+testObj.matrix_local = shearMatrix
+
+
+but that doesn't work because blender automatically recalculates it to get rid of my shear, and I end up with 
+>>> testObj.matrix_local
+Matrix(((0.9739694595336914, 0.2534351050853729, 0.0, 0.0),
+        (-0.2266792356967926, 1.0889309644699097, 0.0, 0.0),
+        (0.0, 0.0, 1.0, 0.0),
+        (0.0, 0.0, 0.0, 1.0)))
+
+
+Any idea if what I'm trying to achieve is possible? And if so how would I go about it?
+It's definitely possible to shear objects using a stack of transforms - here's an example, but as you can see it's a pretty unweildy way of doing it!
+
+
+Df @Df
+10:18
+Clipboard - October 10, 2021 3:18 PM
+(1.10 MB)
+
+
+
+
+jaggz @jaggz
+11:40
+Df you should probably be asking this in #python. blender isn't going to sheer your object through just an assignment of that matrix though -- you'd need to apply the transform to its data i think
+
+
+jaggz @jaggz
+11:54
+@df I don't know what blender does to normalize the data, but it's likely doing it so the matrix is storing loc,rot,scale (not a full set of affine transformations).
+Df blender.stackexchange.com/questions/129674/apply-transformation-matrix-to-existing-mesh
+
+
+Pedro @povmaniac
+13:30
+Good afternoon.. from my new office
+
+
+ThomasDinges @ThomasDinges
+13:32
+Hey Pedro 🙂
+
+
+ThomasDinges @ThomasDinges
+13:40
+Do we have Debug builds on the Buildbot?
+
+
+Pedro @povmaniac
+13:42
+Hi Thomas!
+
+
+Df @Df
+13:42
+Thanks jaggz - yeah it does seem like you're right, it's normalizing it so it only contains loc,rot,scale - I was just hoping there was a way of doing shears without modifying the vertex data, because that won't work for Collection Instances etc, but it does seem like shears aren't directly allowed (for whatever reason!). Will ask in #Python, cheers!
+
+
+LazyDodo @LazyDodo
+14:40
+ThomasDinges yes...but...., why?
+you can do them and run the tests, but we should never make a debug windows build available to users, they can't run it
+
+
+Hans Goudey @HooglyBoogly
+16:22
+I've seen Blender a couple times in some Star Citizen videos, that's nice to see!
+youtu.be/kZWT4aNY6lU?t=3214
+👾 1
+
+
+svenstaro @svenstaro
+21:15
+Hey, I'm the Arch package maintainer for Blender. I received this bug report and it's apparently a problem only in our package: bugs.archlinux.org/task/72352 However, we don't use any fancy build options and, in fact, use the official build config: github.com/archlinux/svntogit-community/blob/packages/blender/trunk/PKGBUILD#L59. Does anyone have a hunch what might be up in the package here?
+
+Obviously we want to give our users a great experience when using downstream packaged Blender as well.
+Only thing I can think of are our more recent dependencies and GCC11 which we use
+
+
+ideasman42 @ideasman42
+21:59
+svenstaro hey, This kind of report better go via Blender's bug tracker.
+
+
+deadpin @deadpin
+22:01
+Looks like it was already filed as developer.blender.org/T89206 before. But closed (official packages were fine as verified by original reporter as well)
+
+
+ideasman42 @ideasman42
+22:03
+Yes, reading into this...
+
+
+svenstaro @svenstaro
+22:03
+I mean I get that you guys don't really wanna look into downstream problems but we're really trying to follow upstream builds here as much as we can
+
+
+ideasman42 @ideasman42
+22:04
+svenstaro some steps to take then...
+- build without patches, following steps on Blenders developer page.
+- build with a different compiler (to rule out a certain class of areas) - clang for example.
+
+
+svenstaro @svenstaro
+22:04
+We only have the openexr3 patch though currently
+
+
+ideasman42 @ideasman42
+22:04
+svenstaro this kind of error is really rare though... am surprised it happens at all.
+
+
+svenstaro @svenstaro
+22:05
+using clang is a good idea though I can't build the cuda bits with it, gotta use gcc11 as the host compiler there I figure
+
+
+ideasman42 @ideasman42
+22:05
+And often these kinds of errors hint at errors in Blender, even if they only happen on a different build.
+Although if this is caused by a difference in a 3rd party library - it's a different story.
+
+
+svenstaro @svenstaro
+22:06
+In that case though you guys are bound to hit the problem in the 3rd party libs sooner or later I reckon
+since the only difference we have is that ours tend to be more recent
+
+
+ideasman42 @ideasman42
+22:07
+Right, you could try building against blender's pre-compiled libs. If that works then it's almost certainly a difference between the libraries.
+
+
+svenstaro @svenstaro
+22:08
+I don't think there's any chance they are ABI compatible
+I'm currently doing a clang build though
+
+
+ideasman42 @ideasman42
+22:08
+They can be used to test though (they work on arch)
+
+
+svenstaro @svenstaro
+22:09
+I suppose it's also useful to not use our hardening options
+we have some binary hardening options for gcc that we tend to use
+
+
+jaggz @jaggz
+23:03
+I forgot how to deal with this: GCC version must be at least 9.3 for precompiled libraries, found 8.3.0
+where can we get libs that'll work on debian-stable?
+
+
+svenstaro @svenstaro
+23:24
+ideasman42 I figured it out, it's     -DWITH_CYCLES_EMBREE=OFF
+so setting that makes it work fine but     -DWITH_CYCLES_EMBREE=ON will break it
+Frankly I still consider this an upstream but I'll turn it off in the package for the time being
+👍 1
+
+
+deadpin @deadpin
+23:30
+certainly interesting. the x64 packages here use embree 3.10, the mac arm64 uses 3.12.1. What version do you use in arch?
+
+
+svenstaro @svenstaro
+23:31
+3.13.0
+
+
+jaggz @jaggz
+23:43
+looks like make deps, when it builds meson, doesn't install its dependencies. meson requires 'mako' which isn't installed. It's using my local (miniconda) python 3.7 currently
+"meson.build:903:2: ERROR: Problem encountered: Python (3.x) mako module >= 0.8.0 required to build mesa."
+Okay.. after manually installing that: paste.debian.net/1215014/
+some embree build bug. How do I go manually run that build to get more debug info?
+deadpin hola. (Not sure if it's too naggy to highlight you for this)
+
+
+svenstaro @svenstaro
+00:00
+deadpin wanna take a look at 3.13.0?
+
+
+deadpin @deadpin
+00:27
+jaggz not sure I can help with make deps as i'm not too familiar with that script, esp. since i'm on windows and have never hit an issue with the provided libs. debian stable should be on gcc 10.x now though and/or should have packages to get you to 9.3 at least
+svenstaro likewise, I'm not setup to build the libs on my side right now to give it a shot. I've been meaning to but haven't yet.
+it's weird that there would be a silent break though.
+
+
+jaggz @jaggz
+00:30
+oh shoot. I'm on old-stable now. (as of aug 14th). Ugh. (scared to make this system unusable with an upgrade)
+
+
+LazyDodo @LazyDodo
+01:52
+svenstaro if you want to have a stab at figuring out what's wrong, building/running the tests, is always good advise (given you're the package maintainer, i'd always do this when you repackage even if you don't have bug reports on your end, catches them bugs early) however, i'd also try a debug build, asserts are off in release builds, right now you're somswhat in a position where all we can do is "heh weird" if you have a stack trace from an assert more targeted help may be possible.
+jaggz i'd probably just look into a way to get gcc9+ , it probably be the solution with the least amount of hassle
+
+
+dfelinto @dfelinto
+03:43
+Sergey could you please review D12817?
+
+
+Pedro @povmaniac
+03:48
+Morning, guys
+dfelinto False alarm for the EXR codec issue. My fault: non update submodules before compiling Blender
+
+
+Sergey @Sergey
+03:50
+This revision needs review, but there are no reviewers specified.
+
+
+dfelinto @dfelinto
+03:52
+Sergey in the future, do you rather if I add you as reviewer first and then poke you? (or not even poke you afterwards?
+suggesting you as a review because you reviewed the commit that introduced the bug
+so maybe you can help to keep my blind spot in check
+
+
+Sergey @Sergey
+03:56
+dfelinto the naming!
+✔ 1
+
+
+Eitan Traurig @EitanSomething
+04:39
+ThomasDinges Potential Spam. Not everything on the list is spam. github.com/EitanSomething/BlenderSpam/blob/auto_commits/logs.md
+🔥 1
+
+
+dr.sybren @dr.sybren
+05:12
+Stefan Werner o/ in 9715ad5acad9: macOS: Support arm64 architecture. you add a patch for numpy. Could you maybe elaborate on why these changes were necessary, and where they came from? Neither the commit message nor the patch review discussed this, and after I update numpy the patch no longer applies.
+
+
+YimingWu @ChengduLittleA
+05:53
+Oh BTW recently my git cli doesn't wait for me to type commit messages.... it pops the editor but the cli already says it exited because the message is empty, does anyone know why this kind of thing happen? It doesn't always happen, but rather randomly
+
+
+Stefan Werner @StefanWerner
+05:53
+dr.sybren it was because numpy assumed that any non-intel Mac would use PPC and support altivec
+
+
+YimingWu @ChengduLittleA
+05:53
+Could that because some git configuration problem?
+
+
+Stefan Werner @StefanWerner
+05:53
+the original numpy was passing -faltivec to the compiler, which fails on ARM
+upstream numpy removed that in this commit: github.com/numpy/numpy/commit/516bb1a1faeb4f0c33f2da9a199ecccabb000469#diff-4e9ee9760f2f3e8cd7f2febab1e1813536a815a2078a1b653e3977c9f9e18951
+
+
+Traslev @Traslev
+06:28
+pcgamer.com/students-dont-know-what-files-and-folders-are-professors-say/
+
+
+ankitm @ankitm
+06:45
+YimingWu maybe your editor needs a wait argument like forum.sublimetext.com/t/21990
+
+
+YimingWu @ChengduLittleA
+07:11
+ankitm Thanks... but it used to behave normally. I know if i use code it doesn't wait, but mousepad, vim or nano does wait for the message, but somehow now they all failed 😕
+
+
+PratikPB2125 @PratikPB2125
+08:07
+Hi ideasman42 , test failure: script_load_modules
+(developer.blender.org/rBa82c9e1e405c84b9ab8b5c1f31d7e135ab41c101)
+☑ 1
+
+
+ideasman42 @ideasman42
+08:10
+PratikPB2125 thanks, checking...
+👍 1
+PratikPB2125 found the issue, committing fix.
+🎉 1
+
+
+Brecht Van Lommel @brecht
+09:16
+svenstaro Embree needs to be compiled with certain functionality for this to work, see developer.blender.org/diffusion/B/browse/master/build_files/build_environment/cmake/embree.cmake
+EMBREE_RAY_MASK=ON is the relevant one here, EMBREE_FILTER_FUNCTION=ON and EMBREE_BACKFACE_CULLING=OFF are the other ones that could affect render results
+
+
+dr.sybren @dr.sybren
+09:18
+Stefan Werner ah, thanks for clarifying. Might be a good idea for any patch, to make sure the reason for that patch is included in the commit message.
+
+StefanWerner
+5:53 AM
+@dr.sybren it was because numpy assumed that any non-intel Mac would use PPC and support altivec
+
+
+Sergey @Sergey
+10:14
+Bastien BASTIEEEEN
+ah there
+
+
+Bastien @mont29
+10:15
+??
+
+
+Pedro @povmaniac
+10:24
+😮
+
+
+JosephEagar @JosephEagar
+11:33
+Brecht Van Lommel Think you could look at developer.blender.org/D12587 sometime ?
+
+
+Brecht Van Lommel @brecht
+14:50
+JosephEagar I'm not really involved anymore in this module, though I could jump in if the regular reviewers don't have time. I'm unsure what the current status of the sculpt module maintenance is (@dfelinto ?)
+I'll leave some quick comments in the patch
+
+
+Hans Goudey @HooglyBoogly
+14:52
+I'm happy to do some review too, but I'd much prefer the patch be split up, it's doing way too much right now IMO
+Sign in to start talking
